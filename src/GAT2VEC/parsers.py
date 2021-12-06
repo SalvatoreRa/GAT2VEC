@@ -25,7 +25,7 @@ def get_embeddingDF(fname):
     df = pd.read_csv(fname, header=None, skiprows=1, delimiter=' ')
     df.sort_values(by=[0], inplace=True)
     df = df.set_index(0)
-    return df.as_matrix(columns=df.columns[0:])
+    return df.to_numpy()
 
 
 def get_labels(dataset_dir):

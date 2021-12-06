@@ -111,7 +111,7 @@ class Classification:
             outer_cv = StratifiedKFold(n_splits=n_splits, shuffle=True)
 
             for train_idx, test_idx in outer_cv.split(embedding, self.labels):
-                clf = GridSearchCV(estimator=log_reg, param_grid=grid, cv=inner_cv, iid=False)
+                clf = GridSearchCV(estimator=log_reg, param_grid=grid, cv=inner_cv)
                 clf.fit(embedding, self.labels)
 
                 print('Parameter fitting done. clf: {}'.format(clf))
